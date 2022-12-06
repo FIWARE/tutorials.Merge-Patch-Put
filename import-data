@@ -1,0 +1,107 @@
+#!/bin/bash
+#
+#  curl commands to reload the data from the previous tutorial
+#
+#
+
+set -e
+
+echo -e "⏳ Loading context data in \033[1mNGSI-LD\033[0m format"
+echo -e "    - all entity data models are defined referencing the" 
+echo -e "      \033[1m"${TUTORIAL_DATA_MODELS_CONTEXT}"\033[0m JSON-LD context"
+echo -e "Creating two cities"
+#
+# Create two citie entities.
+#
+curl -s -o /dev/null -X POST 'http://'"${CONTEXT_BROKER}"'/ngsi-ld/v1/entityOperations/upsert' \
+-H 'Content-Type: application/json' \
+-H 'Link: <'"${TUTORIAL_DATA_MODELS_CONTEXT}"'>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Accept: application/ld+json' \
+--data-raw '[
+    {
+        "id": "urn:ngsi-ld:City:001",
+        "type": "City",
+        "temperature": {
+            "type": "Property",
+            "value": 25,
+            "unitCode": "CEL",
+            "observedAt": "2022-06-30T00:00:00.000Z"
+        },
+        "location": {
+            "type": "GeoProperty",
+            "value": {
+                "type": "Point",
+                "coordinates": [
+                    28.955,
+                    41.0136
+                ]
+            }
+        },
+        "population": {
+            "type": "Property",
+            "value": 15840900,
+            "observedAt": "2022-12-31T00:00:00.000Z"
+        },
+        "address": {
+            "type": "Property",
+            "value": {
+                "streetAddress": "Kanlıca İskele Meydanı",
+                "addressRegion": "İstanbul",
+                "addressLocality": "Beşiktaş",
+                "postalCode": "12345"
+            }
+        },
+        "name": {
+            "type": "LanguageProperty",
+            "languageMap": {
+                "el": "Κωνσταντινούπολις",
+                "en": "Constantinople",
+                "tr": "İstanbul"
+            }
+        },
+        "runBy": {
+            "type": "Relationship",
+            "object": "urn:ngsi-ld:Adminstration:Cumhuriyet_Halk_Partisi"
+        }
+    },
+    {
+        "id": "urn:ngsi-ld:City:002",
+        "type": "City",
+        "temperature": {
+            "value": 25,
+            "unitCode": "CEL",
+            "observedAt": "2022-06-30T00:00:00.000Z"
+        },
+        "address": {
+            "value": {
+                "streetAddress": "Viale di Valle Aurelia",
+                "addressRegion": "Lazio",
+                "addressLocality": "Roma",
+                "postalCode": "00138"
+            }
+        },
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                12.482,
+                41.893
+            ]
+        },
+        "population": {
+            "value": 4342212,
+            "observedAt": "2021-01-01T00:00:00.000Z"
+        },
+        "name": {
+            "languageMap": {
+                "el": "Ρώμη",
+                "en": "Rome",
+                "it": "Roma"
+            }
+        },
+        "runBy": {
+            "object": "urn:ngsi-ld:Adminstration:Partito_Democratico"
+        }
+    }
+]'
+
+echo -e " \033[1;32mdone\033[0m"

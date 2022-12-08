@@ -31,11 +31,12 @@ The tutorial uses [cUrl](https://ec.haxx.se/) commands throughout, but is also a
 -   [Start Up](#start-up)
 -   [Merge Patch Operations](#merge-patch-operations)
     -   [Preflight](#preflight)
-    -   [Merge-Patch Operations](#merge-patch-operations)
+    -   [Merge-Patch Operations](#merge-patch-operations-1)
         -   [Updating using Merge Patch](#updating-using-merge-patch)
         -   [Adding new attributes using Merge Patch](#adding-new-attributes-using-merge-patch)
         -   [Removing existing attributes using Merge Patch](#removing-existing-attributes-using-merge-patch)
         -   [Amending values of a Property with sub-attributes](#amending-values-of-a-property-with-sub-attributes)
+        -   [Updating using key-values format](#updating-using-key-values-format)
         -   [Updating using key-values with `observedAt`](#updating-using-key-values-with-observedat)
         -   [Updating using key-values with `lang`](#updating-using-key-values-with-lang)
         -   [Overwriting an entity with **PUT**](#overwriting-an-entity-with-put)
@@ -49,7 +50,7 @@ The tutorial uses [cUrl](https://ec.haxx.se/) commands throughout, but is also a
 >
 > — Franz Kafka, Letters to Milena
 
-The Merge-Patch is a well defined [IETF specification](https://www.rfc-editor.org/rfc/rfc7396.html) used to describe a
+The Merge-Patch is a well-defined [IETF specification](https://www.rfc-editor.org/rfc/rfc7396.html) used to describe a
 set of modifications to be made on a resource. It uses a JSON payload as a forensic knife to create, modify or delete
 individually specified attributes within an entity. As defined across the Internet, Merge-Patch typically uses JSON
 payloads, and is an action usually assigned to the HTTP **PATCH** method. NGSI-LD extends the concept for use with
@@ -129,7 +130,7 @@ Results in an overwrite of the whole `temperature` property. Note that in the se
 well.
 
 The idea of Partial Update **PATCH** at an attribute level is to aim for data consistency. If a sub-attribute such as
-`observedAt` is omitted, then it is **not** removed and the existing value remains. A user is forced to deliberately
+`observedAt` is omitted, then it is **not** removed, and the existing value remains. A user is forced to deliberately
 delete such data using other means.
 
 The idea of Partial Update **PATCH** at an Entity level is to aim for temporal consistency. It is necessary to resupply
@@ -197,7 +198,7 @@ payload will usually also include `unitCode` and `observedAt` as well as an upda
 
 ### Overwrite **PUT**
 
-HTTO **PUT** is supported under `/entities/<id>` and just overwrites the data within an existing entity. In this case
+HTTP **PUT** is supported under `/entities/<id>` and just overwrites the data within an existing entity. In this case
 whole entity is overwritten, a payload such as the one below would result in an entity with a single `temperature`
 attribute.
 
@@ -222,7 +223,7 @@ The required architecture will consist of three elements:
 
 -   The [Orion Context Broker](https://fiware-orion.readthedocs.io/en/latest/) which will receive requests using
     [NGSI-LD](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/rep/NGSI-LD/NGSI-LD/raw/master/spec/updated/generated/full_api.json)
--   The underlying [MongoDB](https://www.mongodb.com/) database :
+-   The underlying [MongoDB](https://www.mongodb.com/) database:
     -   Used by the Orion Context Broker to hold context data information such as data entities, subscriptions and
         registrations
 -   An HTTP **Web-Server** which offers static `@context` files defining the context entities within the system.
@@ -551,7 +552,7 @@ curl -L -X PATCH \
 #### :eight: Request:
 
 Re-retrieving the `urn:ngsi-ld:City:001`, you can see that the `location` and `temperature` have changed, but all other
-_Properties_ and _Properties of Properties_ such as `unitCode` ands `observedAt` remain unchanged:
+_Properties_ and _Properties of Properties_ such as `unitCode` and `observedAt` remain unchanged:
 
 ```console
 curl -L -X GET 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
@@ -801,7 +802,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :one::two: Request:
+#### :one::four: Request:
 
 Once again retrieving the `urn:ngsi-ld:City:001`, you can see that the `address` and its properties have been updated.
 
@@ -835,7 +836,7 @@ curl -G -X GET \
 }
 ```
 
-#### Updating using key-values format
+### Updating using key-values format
 
 Merge-Patch also offers some limited support to update `values` using key-values format. In this case any existing
 `value` is updated, but no metadata is changed. Once again Object values need only send the sub-attributes to be
@@ -844,7 +845,7 @@ updated, and setting a sub-attribute to `urn:ngsi-ld:null` will cause it to be d
 This means that it is possible to **GET** a key-values entity, amend the values and **PATCH** it back to the context
 broker.
 
-#### :one::three: Request:
+#### :one::five: Request:
 
 ```console
 curl -G -X PATCH \
@@ -869,7 +870,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :one::two: Request:
+#### :one::six: Request:
 
 Once again retrieving the `urn:ngsi-ld:City:001` entity, you can see that the attributes have been updated. It should be
 noted that the _Relationship_ `runBy` is still defined as a _Relationship_, it is only the `object` value that has been
@@ -926,7 +927,7 @@ uses `observedAt` _Property of a Property of a Property_, the timestamp will als
 
 The following example updates both the location and temperature attributes
 
-#### :one::three: Request:
+#### :one::seven: Request:
 
 ```console
 curl -G -X PATCH \
@@ -950,7 +951,7 @@ curl -G -X PATCH \
 Once again retrieving the `urn:ngsi-ld:City:001` entity, you can see that the attributes have been updated, and this
 time the timestamp has also changed.
 
-#### :one::four: Request:
+#### :one::eight: Request:
 
 ```console
 curl -G -X GET \
@@ -991,7 +992,7 @@ single string or string array. This is obviously a lossy operation, and in order
 support entities with LanguageProperties, it is necessary to be able to merge a simple string value back into a
 `languageMap`.
 
-#### :one::five: Request:
+#### :one::nine: Request:
 
 ```console
 curl -G -X PATCH \
@@ -1007,7 +1008,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :one::six: Request:
+#### :two::zero: Request:
 
 ```console
 curl -G -X GET \
@@ -1057,7 +1058,7 @@ deleted.
 
 As usual, both normalized and concise formats are supported.
 
-#### :one:seven::A: Request:
+#### :two::one::A: Request:
 
 ```console
 curl -G -X PUT \
@@ -1094,7 +1095,7 @@ curl -G -X PUT \
 }'
 ```
 
-#### :one:seven::B: Request:
+#### :two::one::B: Request:
 
 ```console
 curl -G -X PUT \

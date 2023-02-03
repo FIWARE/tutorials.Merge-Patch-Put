@@ -2,7 +2,7 @@
     "@context": {
 
         "ngsi-ld": "https://uri.etsi.org/ngsi-ld/",
-        "fiware": "https://uri.fiware.org/ns/data-models#",
+        "fiware": "https://uri.fiware.org/ns/dataModels#",
         "schema": "https://schema.org/",
         "Anomaly": "fiware:Anomaly",
         "address": "https://smartdatamodels.org/address",

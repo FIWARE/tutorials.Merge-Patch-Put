@@ -172,7 +172,7 @@ stoppingContainers () {
 
 displayServices () {
 	echo ""
-	docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" --filter name=$1-*
+	docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" --filter name="$1"
 	echo ""
 }
 
@@ -210,9 +210,9 @@ case "${command}" in
 		echo -e "- Data models \033[1m@context\033[0m (Smart Farm) is supplied externally"
 		echo ""
 		${dockerCmd} -f docker-compose/common.yml -f docker-compose/orion-ld.yml up -d --remove-orphans --renew-anon-volumes
+		displayServices "orion|fiware"
 		waitForMongo
 		addDatabaseIndex
-		displayServices fiware
 		waitForOrion
 		export CONTEXT_BROKER=orion:1026
 		loadData orion:1026
@@ -226,7 +226,9 @@ case "${command}" in
 		echo -e "- Data models \033[1m@context\033[0m (Smart Farm) is supplied externally"
 		echo ""
 		${dockerCmd} -f docker-compose/common.yml -f docker-compose/scorpio-aaio.yml up -d --remove-orphans --renew-anon-volumes
-		displayServices fiware
+		displayServices "scorpio|fiware"
+		waitForMongo
+		addDatabaseIndex
 		waitForScorpio
 		export CONTEXT_BROKER=scorpio:9090
 		loadData scorpio:9090
@@ -240,7 +242,9 @@ case "${command}" in
 		echo -e "- Data models \033[1m@context\033[0m (Smart Farm) is supplied externally"
 		echo ""
 		${dockerCmd} -f docker-compose/common.yml -f docker-compose/stellio.yml up -d --remove-orphans --renew-anon-volumes
-		displayServices fiware
+		displayServices "stellio|fiware"
+		waitForMongo
+		addDatabaseIndex
 		waitForStellio
 		export CONTEXT_BROKER=stellio:8080
 		loadData stellio:8080

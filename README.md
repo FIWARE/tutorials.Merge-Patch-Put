@@ -289,7 +289,7 @@ Thereafter, all services can be initialized from the command-line by running the
 repository:
 
 ```console
-./services start
+./services [orion|scorpio|stellio]
 ```
 
 This start-up script also preloads two City entities into the context broker.

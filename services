@@ -216,6 +216,7 @@ case "${command}" in
 		waitForOrion
 		export CONTEXT_BROKER=orion:1026
 		loadData orion:1026
+		echo -e "\033[1;34m${command}\033[0m is now running and exposed on localhost:${EXPOSED_PORT}"
 		;;
 	"scorpio")
 		export $(cat .env | grep "#" -v)
@@ -232,6 +233,7 @@ case "${command}" in
 		waitForScorpio
 		export CONTEXT_BROKER=scorpio:9090
 		loadData scorpio:9090
+		echo -e "\033[1;34m${command}\033[0m is now running and exposed on localhost:${EXPOSED_PORT}"
 		;;
 	"stellio")
 		export $(cat .env | grep "#" -v)
@@ -248,13 +250,14 @@ case "${command}" in
 		waitForStellio
 		export CONTEXT_BROKER=stellio:8080
 		loadData stellio:8080
+		echo -e "\033[1;34m${command}\033[0m is now running and exposed on localhost:${EXPOSED_PORT}"
 		;;
 	"stop")
 		export $(cat .env | grep "#" -v)
 		stoppingContainers
 		;;
 	"start")
-		./services orion $2
+		./services ${CONTEXT_BROKER:=orion} $2
 		;;
 	"create")
 		export $(cat .env | grep "#" -v)

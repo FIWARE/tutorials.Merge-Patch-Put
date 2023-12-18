@@ -330,7 +330,7 @@ Bash スクリプトを実行することにより、コマンドラインから
 Orion Context Broker は **OPTIONS** メソッドをサポートし、サポートされている操作をユーザがリクエストできるように
 します。2種類の **PATCH** 操作は、Accept-Patch ヘッダを読み取ることで区別できます。
 
-#### :one: リクエスト:
+#### 1️⃣ リクエスト:
 
 ```console
 curl -iX OPTIONS \
@@ -348,7 +348,7 @@ Allow: GET,POST,OPTIONS
 Content-Length: 0
 ```
 
-#### :two: リクエスト:
+#### 2️⃣ リクエスト:
 
 ```console
 curl -iX OPTIONS \
@@ -370,7 +370,7 @@ Allow: GET,PUT,DELETE,PATCH,OPTIONS
 Content-Length: 0
 ```
 
-#### :three: リクエスト:
+#### 3️⃣ リクエスト:
 
 ```console
 curl -iX OPTIONS \
@@ -391,7 +391,7 @@ Allow: POST,PATCH,OPTIONS
 Content-Length: 0
 ```
 
-#### :four: リクエスト:
+#### 4️⃣ リクエスト:
 
 ```console
 curl -iX OPTIONS \
@@ -420,7 +420,7 @@ Content-Length:
 エンティティの現在の状態は、`/entities/<entity-id>` エンドポイントに対して **GET** リクエストを行うことで
 取得できます。これらのリクエストは、各操作後にエンティティがどのように変化したかを確認するために行うことができます。
 
-#### :five: リクエスト:
+#### 5️⃣ リクエスト:
 
 ```console
 curl -L -X GET \
@@ -477,7 +477,7 @@ curl -L -X GET \
 }
 ```
 
-#### :six: リクエスト:
+#### 6️⃣ リクエスト:
 
 ```console
 curl -L -X GET \
@@ -534,7 +534,7 @@ curl -L -X GET \
 この例では、都市の `location` を北緯52.5146、東経13.350に移動し、`temperature` を20に修正します。
 ここのデータは正規化された形式 (normalized format) ですが、簡潔な形式 (concise format) もサポートされています:
 
-#### :seven::A: リクエスト:
+#### 7️⃣:A: リクエスト:
 
 ```console
 curl -L -X PATCH \
@@ -559,7 +559,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :seven::B: リクエスト:
+#### 7️⃣:B: リクエスト:
 
 ```console
 curl -L -X PATCH \
@@ -578,7 +578,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :eight: リクエスト:
+#### 8️⃣ リクエスト:
 
 `urn:ngsi-ld:City:001` を再取得すると、`location` と `temperature` が変更されていることがわかりますが、他のすべての
 _Properties_ と、`unitCode` や `observedAt` などの _Properties of Properties_ は変更されていません:
@@ -648,7 +648,7 @@ _Property of a Property_ が挿入されています。
 いつものように、正規化された形式と簡潔な形式の両方がサポートされています。不明な属性のデフォルトは _Property_
 で、簡潔な _Relationship_ または、_LanguageProperty_ を挿入して、`object` または `languageMap` を期待どおりに含めます。
 
-#### :nine::A: リクエスト:
+#### 9️⃣:A: リクエスト:
 
 ```console
 curl -L -X PATCH \
@@ -669,7 +669,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :nine::B: リクエスト:
+#### 9️⃣:B: リクエスト:
 
 ```console
 curl -L -X PATCH \
@@ -688,7 +688,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :one::zero: リクエスト:
+#### 1️⃣0️⃣ リクエスト:
 
 `urn:ngsi-ld:City:001` を再取得すると、`temperature` が変化し、新しい `precision` (精度) の _Property of a Property_
 が挿入されていることがわかります。
@@ -730,7 +730,7 @@ curl -G -X GET \
 を使用します。`urn:ngsi-ld:null` は、_Property_, _Relationship_, または _LanguageProperty_ の削除にも同様に有効である
 ことに注意してください。以下の簡潔な例では、挿入、更新、および削除を同時に適用できます。
 
-#### :one::one: リクエスト:
+#### 1️⃣1️⃣ リクエスト:
 
 ```console
 curl -L -X PATCH \
@@ -751,7 +751,7 @@ curl -L -X PATCH \
 
 ```
 
-#### :one::two: リクエスト:
+#### 1️⃣2️⃣ リクエスト:
 
 `urn:ngsi-ld:City:002` を再度取得すると、`temperature` が削除され、新しい `humidity` _Property_ が挿入され、
 `name` が更新されていることがわかります。
@@ -814,7 +814,7 @@ curl -G -X GET \
 
 ### サブ属性を使用してプロパティの値を修正 (Amending values of a Property with sub-attributes)
 
-#### :one::three: リクエスト:
+#### 1️⃣3️⃣ リクエスト:
 
 簡潔な形式を使用すると、JSON オブジェクトの属性と _Properties of Properties_ を区別する必要があります。この場合、
 `value` の使用は、更新される `address` オブジェクトの `addressLocality` および `postalCode` であり、`verified`
@@ -836,7 +836,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :one::four: リクエスト:
+#### 1️⃣4️⃣ リクエスト:
 
 `urn:ngsi-ld:City:001` を再度取得すると、`address` とそのプロパティ (properties) が更新されていることがわかります。
 
@@ -881,7 +881,7 @@ Merge-Patch は、キー・バリュー形式を使用して `values` を更新�
 これは、キー・バリューのエンティティを **GET** (取得)し、値を **PATCH** （パッチ）して、それを Context Broker
 に戻すことができることを意味します。
 
-#### :one::five: リクエスト:
+#### 1️⃣5️⃣ リクエスト:
 
 ```console
 curl -G -X PATCH \
@@ -906,7 +906,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :one::six: リクエスト:
+#### 1️⃣6️⃣ リクエスト:
 
 `urn:ngsi-ld:City:001` エンティティを再度取得すると、属性が更新されていることがわかります。_Relationship_ `runBy`
 はまだ _Relationship_ として定義されていることに注意してください。変更されたのは、`object` の値だけです。
@@ -964,7 +964,7 @@ curl -G -X GET \
 
 次の例では、`location` と `temperature` の両方の属性を更新します:
 
-#### :one::seven: リクエスト:
+#### 1️⃣7️⃣ リクエスト:
 
 ```console
 curl -G -X PATCH \
@@ -988,7 +988,7 @@ curl -G -X PATCH \
 `urn:ngsi-ld:City:001` エンティティを再度取得すると、属性が更新されていることがわかります。今回はタイムスタンプも
 変更されています。
 
-#### :one::eight: リクエスト:
+#### 1️⃣8️⃣ リクエスト:
 
 ```console
 curl -G -X GET \
@@ -1030,7 +1030,7 @@ curl -G -X GET \
 文字列配列に切り替えます。これは明らかに損失の多い操作であり、キー・バリューのマージ・パッチが LanguageProperties
 を持つエンティティを完全にサポートするためには、単純な文字列値を `languageMap` にマージできる必要があります。
 
-#### :one::nine: リクエスト:
+#### 1️⃣9️⃣ リクエスト:
 
 ```console
 curl -G -X PATCH \
@@ -1046,7 +1046,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :two::zero: リクエスト:
+#### 2️⃣0️⃣ リクエスト:
 
 ```console
 curl -G -X GET \
@@ -1097,7 +1097,7 @@ curl -G -X GET \
 
 いつものように、正規化された形式と簡潔な形式の両方がサポートされています。
 
-#### :two::one::A: リクエスト:
+#### 2️⃣1️⃣:A: リクエスト:
 
 ```console
 curl -G -X PUT \
@@ -1134,7 +1134,7 @@ curl -G -X PUT \
 }'
 ```
 
-#### :two::one::B: リクエスト:
+#### 2️⃣1️⃣:B: リクエスト:
 
 ```console
 curl -G -X PUT \

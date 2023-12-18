@@ -294,7 +294,8 @@ repository:
 
 This start-up script also preloads two City entities into the context broker.
 
-> :information_source: **Note:** If you want to clean up and start over again you can do so with the following command:
+> [!NOTE]
+> If you want to clean up and start over again you can do so with the following command:
 >
 > ```console
 > ./services stop
@@ -309,7 +310,7 @@ This start-up script also preloads two City entities into the context broker.
 The Orion context broker supports the **OPTIONS** method to enable users to request the supported operations. The two
 types of **PATCH** operation can be distinguished by reading the `Accept-Patch` header.
 
-#### :one: Request:
+#### 1️⃣ Request:
 
 ```console
 curl -iX OPTIONS \
@@ -327,7 +328,7 @@ Allow: GET,POST,OPTIONS
 Content-Length: 0
 ```
 
-#### :two: Request:
+#### 2️⃣ Request:
 
 ```console
 curl -iX OPTIONS \
@@ -348,7 +349,7 @@ Allow: GET,PUT,DELETE,PATCH,OPTIONS
 Content-Length: 0
 ```
 
-#### :three: Request:
+#### 3️⃣ Request:
 
 ```console
 curl -iX OPTIONS \
@@ -369,7 +370,7 @@ Allow: POST,PATCH,OPTIONS
 Content-Length: 0
 ```
 
-#### :four: Request:
+#### 4️⃣ Request:
 
 ```console
 curl -iX OPTIONS \
@@ -396,7 +397,7 @@ Note that two preexisting entities have been created for amendment by Merge-Patc
 be obtained by making a **GET** request to the `/entities/<entity-id>` endpoint. These requests can be made to see how
 the entities have changed after each operation.
 
-#### :five: Request:
+#### 5️⃣ Request:
 
 ```console
 curl -L -X GET \
@@ -453,7 +454,7 @@ curl -L -X GET \
 }
 ```
 
-#### :six: Request:
+#### 6️⃣ Request:
 
 ```console
 curl -L -X GET \
@@ -508,7 +509,7 @@ curl -L -X GET \
 This example moves the city `location` to 52.5146 N,13.350 E and amends the `temperature` to 20. The data here is in
 normalized format, but concise format is also supported:
 
-#### :seven::A: Request:
+#### 7️⃣:A: Request:
 
 ```console
 curl -L -X PATCH \
@@ -533,7 +534,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :seven::B: Request:
+#### 7️⃣:B: Request:
 
 ```console
 curl -L -X PATCH \
@@ -552,7 +553,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :eight: Request:
+#### 8️⃣ Request:
 
 Re-retrieving the `urn:ngsi-ld:City:001`, you can see that the `location` and `temperature` have changed, but all other
 _Properties_ and _Properties of Properties_ such as `unitCode` and `observedAt` remain unchanged:
@@ -620,7 +621,7 @@ this example, the `temperature` attribute is being updated, the `value` and `obs
 As usual, both normalized and concise formats are supported.The default for unknown attributes is _Property_, to insert
 a concise _Relationship_ or a _LanguageProperty_ include `object` or `languageMap` as expected.
 
-#### :nine::A: Request:
+#### 9️⃣:A: Request:
 
 ```console
 curl -L -X PATCH \
@@ -641,7 +642,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :nine::B: Request:
+#### 9️⃣:B: Request:
 
 ```console
 curl -L -X PATCH \
@@ -660,7 +661,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :one::zero: Request:
+#### 1️⃣0️⃣ Request:
 
 Re-retrieving the `urn:ngsi-ld:City:001`, you can see that the `temperature` have changed, and the new `precision`
 _Property of a Property_ has been inserted.
@@ -701,7 +702,7 @@ attribute with a `null` is always removed from the payload on expansion) and the
 or a _LanguageProperty_. In the concise example below, an insertion, an update and a deletion can be applied
 simultaneously.
 
-#### :one::one: Request:
+#### 1️⃣1️⃣ Request:
 
 ```console
 curl -L -X PATCH \
@@ -722,7 +723,7 @@ curl -L -X PATCH \
 
 ```
 
-#### :one::two: Request:
+#### 1️⃣2️⃣ Request:
 
 Re-retrieving the `urn:ngsi-ld:City:002`, you can see that the `temperature` has been removed and the new `humidity`
 _Property_ has been inserted and the `name` updated.
@@ -783,7 +784,7 @@ curl -G -X GET \
 
 ### Amending values of a Property with sub-attributes
 
-#### :one::three: Request:
+#### 1️⃣3️⃣ Request:
 
 Using concise format, it is necessary to distinguish between atttibutes of a JSON object and _Properties of Properties_.
 In this case the use of `value` shows it is the `addressLocality` and `postalCode` of the `address` Object which is to
@@ -805,7 +806,7 @@ curl -L -X PATCH \
 }'
 ```
 
-#### :one::four: Request:
+#### 1️⃣4️⃣ Request:
 
 Once again retrieving the `urn:ngsi-ld:City:001`, you can see that the `address` and its properties have been updated.
 
@@ -848,7 +849,7 @@ updated, and setting a sub-attribute to `urn:ngsi-ld:null` will cause it to be d
 This means that it is possible to **GET** a key-values entity, amend the values and **PATCH** it back to the context
 broker.
 
-#### :one::five: Request:
+#### 1️⃣5️⃣ Request:
 
 ```console
 curl -G -X PATCH \
@@ -873,7 +874,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :one::six: Request:
+#### 1️⃣6️⃣ Request:
 
 Once again retrieving the `urn:ngsi-ld:City:001` entity, you can see that the attributes have been updated. It should be
 noted that the _Relationship_ `runBy` is still defined as a _Relationship_, it is only the `object` value that has been
@@ -930,7 +931,7 @@ uses `observedAt` _Property of a Property of a Property_, the timestamp will als
 
 The following example updates both the location and temperature attributes
 
-#### :one::seven: Request:
+#### 1️⃣7️⃣ Request:
 
 ```console
 curl -G -X PATCH \
@@ -954,7 +955,7 @@ curl -G -X PATCH \
 Once again retrieving the `urn:ngsi-ld:City:001` entity, you can see that the attributes have been updated, and this
 time the timestamp has also changed.
 
-#### :one::eight: Request:
+#### 1️⃣8️⃣ Request:
 
 ```console
 curl -G -X GET \
@@ -995,7 +996,7 @@ single string or string array. This is obviously a lossy operation, and in order
 support entities with LanguageProperties, it is necessary to be able to merge a simple string value back into a
 `languageMap`.
 
-#### :one::nine: Request:
+#### 1️⃣9️⃣ Request:
 
 ```console
 curl -G -X PATCH \
@@ -1011,7 +1012,7 @@ curl -G -X PATCH \
 }'
 ```
 
-#### :two::zero: Request:
+#### 2️⃣0️⃣ Request:
 
 ```console
 curl -G -X GET \
@@ -1061,7 +1062,7 @@ deleted.
 
 As usual, both normalized and concise formats are supported.
 
-#### :two::one::A: Request:
+#### 2️⃣1️⃣:A: Request:
 
 ```console
 curl -G -X PUT \
@@ -1098,7 +1099,7 @@ curl -G -X PUT \
 }'
 ```
 
-#### :two::one::B: Request:
+#### 2️⃣1️⃣:B: Request:
 
 ```console
 curl -G -X PUT \

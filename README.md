@@ -411,7 +411,7 @@ the entities have changed after each operation.
 ```console
 curl -L -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json'
 ```
 
@@ -468,7 +468,7 @@ curl -L -X GET \
 ```console
 curl -L -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=concise'
 ```
@@ -569,7 +569,7 @@ _Properties_ and _Properties of Properties_ such as `unitCode` and `observedAt` 
 
 ```console
 curl -L -X GET 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json'
 ```
 
@@ -678,7 +678,7 @@ _Property of a Property_ has been inserted.
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=temperature' \
 ```
@@ -740,7 +740,7 @@ _Property_ has been inserted and the `name` updated.
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=concise'
 ```
@@ -822,7 +822,7 @@ Once again retrieving the `urn:ngsi-ld:City:001`, you can see that the `address`
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=address' \
 ```
@@ -892,7 +892,7 @@ changed.
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=address,temperature,location,runBy' \
 ```
@@ -969,7 +969,7 @@ time the timestamp has also changed.
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=temperature,location' \
 ```
@@ -1026,7 +1026,7 @@ curl -G -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/json-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=keyValues' \
 -d 'attrs=temperature,population,name'

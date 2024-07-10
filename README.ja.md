@@ -423,7 +423,7 @@ Content-Length:
 ```console
 curl -L -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json'
 ```
 
@@ -480,7 +480,7 @@ curl -L -X GET \
 ```console
 curl -L -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=concise'
 ```
@@ -537,7 +537,7 @@ curl -L -X GET \
 ```console
 curl -L -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "temperature": {
@@ -562,7 +562,7 @@ curl -L -X PATCH \
 ```console
 curl -L -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "temperature": 20,
@@ -583,7 +583,7 @@ _Properties_ と、`unitCode` や `observedAt` などの _Properties of Properti
 
 ```console
 curl -L -X GET 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json'
 ```
 
@@ -651,7 +651,7 @@ _Property of a Property_ が挿入されています。
 ```console
 curl -L -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "temperature": {
@@ -672,7 +672,7 @@ curl -L -X PATCH \
 ```console
 curl -L -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "temperature": {
@@ -694,7 +694,7 @@ curl -L -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=temperature' \
 ```
@@ -733,7 +733,7 @@ curl -G -X GET \
 ```console
 curl -L -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "humidity": 80,
@@ -757,7 +757,7 @@ curl -L -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=concise'
 ```
@@ -821,7 +821,7 @@ _Property of a Property_ がメタデータ属性であることを示してい�
 ```console
 curl -L -X PATCH \
     'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "address": {
@@ -841,7 +841,7 @@ curl -L -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=address' \
 ```
@@ -884,7 +884,7 @@ Merge-Patch は、キー・バリュー形式を使用して `values` を更新�
 ```console
 curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -d 'options=keyValues' \
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -912,7 +912,7 @@ curl -G -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=address,temperature,location,runBy' \
 ```
@@ -967,7 +967,7 @@ curl -G -X GET \
 ```console
 curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 -d 'options=keyValues' \
 -d 'observedAt=2022-10-10T10:10:00.000Z' \
@@ -991,7 +991,7 @@ curl -G -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'attrs=temperature,location' \
 ```
@@ -1033,7 +1033,7 @@ curl -G -X GET \
 ```console
 curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
 -d 'options=keyValues' \
 -d 'lang=en'
@@ -1049,7 +1049,7 @@ curl -G -X PATCH \
 ```console
 curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
 -d 'options=keyValues' \
 -d 'attrs=temperature,population,name'
@@ -1101,7 +1101,7 @@ curl -G -X GET \
 curl -G -X PUT \
  'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
 -H 'Content-Type: application/json' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 --data-raw '{
 
     "type": "City",
@@ -1138,7 +1138,7 @@ curl -G -X PUT \
 curl -G -X PUT \
  'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
 -H 'Content-Type: application/json' \
--H 'Link: <http://context/ngsi-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
+-H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 --data-raw '{
 
     "type": "City",

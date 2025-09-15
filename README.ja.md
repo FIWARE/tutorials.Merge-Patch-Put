@@ -482,7 +482,7 @@ curl -L -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'options=concise'
+-d 'format=concise'
 ```
 
 #### レスポンス:
@@ -582,7 +582,8 @@ curl -L -X PATCH \
 _Properties_ と、`unitCode` や `observedAt` などの _Properties of Properties_ は変更されていません:
 
 ```console
-curl -L -X GET 'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
+curl -L -X GET \
+  'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json'
 ```
@@ -696,7 +697,7 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'attrs=temperature' \
+-d 'pick=id,type,temperature' \
 ```
 
 #### レスポンス:
@@ -759,7 +760,7 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'options=concise'
+-d 'format=concise'
 ```
 
 #### レスポンス:
@@ -843,7 +844,7 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'attrs=address' \
+-d 'pick=id,type,address' \
 ```
 
 #### レスポンス:
@@ -885,7 +886,7 @@ Merge-Patch は、キー・バリュー形式を使用して `values` を更新�
 curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
--d 'options=keyValues' \
+-d 'format=simplified' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "temperature": 19,
@@ -914,7 +915,7 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'attrs=address,temperature,location,runBy' \
+-d 'pick=id,type,address,temperature,location,runBy' \
 ```
 
 #### レスポンス:
@@ -969,7 +970,7 @@ curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
--d 'options=keyValues' \
+-d 'format=simplified' \
 -d 'observedAt=2022-10-10T10:10:00.000Z' \
 --data-raw '{
     "temperature": 19,
@@ -993,7 +994,7 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'attrs=temperature,location' \
+-d 'pick=id,type,temperature,location' \
 ```
 
 #### レスポンス:
@@ -1035,7 +1036,7 @@ curl -G -X PATCH \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Content-Type: application/json' \
--d 'options=keyValues' \
+-d 'format=simplified' \
 -d 'lang=en'
 --data-raw '{
     "temperature": 19,
@@ -1051,8 +1052,8 @@ curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:001' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
--d 'options=keyValues' \
--d 'attrs=temperature,population,name'
+-d 'format=simplified' \
+-d 'pick=id,type,temperature,population,name'
 ```
 
 #### レスポンス:

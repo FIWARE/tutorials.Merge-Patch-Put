@@ -1150,4 +1150,4 @@ the other [tutorials in this series](https://ngsi-ld-tutorials.rtfd.io)
 
 ## License
 
-[MIT](LICENSE) © 2022-2025 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2022-2026 FIWARE Foundation e.V.

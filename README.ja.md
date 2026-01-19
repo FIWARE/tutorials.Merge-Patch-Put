@@ -1174,4 +1174,4 @@ curl -G -X PUT \
 
 ## License
 
-[MIT](LICENSE) © 2022 FIWARE Foundation e.V.
+[MIT](LICENSE) © 2022-2026 FIWARE Foundation e.V.

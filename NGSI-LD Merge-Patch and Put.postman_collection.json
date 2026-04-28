@@ -253,9 +253,9 @@
 							],
 							"query": [
 								{
-									"key": "options",
+									"key": "format",
 									"value": "normalized",
-									"description": "* `keyValues` option in order to get a more compact and brief representation, including just attribute values\n* `values` option combined with a list of attribute values  `attrs`  for an ordered list of attributes only\n"
+									"description": "* `simplified` - the response consists of JSON only without attribute `type`/`value` wrapper elements\n"
 								}
 							]
 						}
@@ -300,9 +300,9 @@
 							],
 							"query": [
 								{
-									"key": "options",
+									"key": "format",
 									"value": "concise",
-									"description": "* `keyValues` option in order to get a more compact and brief representation, including just attribute values\n* `values` option combined with a list of attribute values  `attrs`  for an ordered list of attributes only\n"
+									"description": "* `simplified` - the response consists of JSON only without attribute `type`/`value` wrapper elements\n"
 								},
 								{
 									"key": "lang",
@@ -338,7 +338,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001/?options=keyValues&lang=el",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001/?format=simplified&lang=el",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"
@@ -352,9 +352,9 @@
 							],
 							"query": [
 								{
-									"key": "options",
-									"value": "keyValues",
-									"description": "* `keyValues` option in order to get a more compact and brief representation, including just attribute values\n* `values` option combined with a list of attribute values  `attrs`  for an ordered list of attributes only\n"
+									"key": "format",
+									"value": "simplified",
+									"description": "* `simplified` - the response consists of JSON only without attribute `type`/`value` wrapper elements\n"
 								},
 								{
 									"key": "lang",
@@ -404,8 +404,8 @@
 							],
 							"query": [
 								{
-									"key": "options",
-									"value": "keyValues",
+									"key": "format",
+									"value": "simplified",
 									"disabled": true
 								},
 								{
@@ -457,8 +457,8 @@
 							],
 							"query": [
 								{
-									"key": "options",
-									"value": "keyValues",
+									"key": "format",
+									"value": "simplified",
 									"disabled": true
 								},
 								{
@@ -510,8 +510,8 @@
 							],
 							"query": [
 								{
-									"key": "options",
-									"value": "keyValues",
+									"key": "format",
+									"value": "simplified",
 									"disabled": true
 								},
 								{
@@ -598,7 +598,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?options=keyValues",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?format=simplified",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"
@@ -621,8 +621,8 @@
 									"disabled": true
 								},
 								{
-									"key": "options",
-									"value": "keyValues"
+									"key": "format",
+									"value": "simplified"
 								}
 							]
 						}
@@ -650,7 +650,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?options=keyValues&observedAt=2022-10-10T10:10:00.000Z",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?format=simplified&observedAt=2022-10-10T10:10:00.000Z",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"
@@ -663,8 +663,8 @@
 							],
 							"query": [
 								{
-									"key": "options",
-									"value": "keyValues"
+									"key": "format",
+									"value": "simplified"
 								},
 								{
 									"key": "attrs",
@@ -706,7 +706,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?options=keyValues&lang=en",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?format=simplified&lang=en",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"
@@ -729,8 +729,8 @@
 									"disabled": true
 								},
 								{
-									"key": "options",
-									"value": "keyValues"
+									"key": "format",
+									"value": "simplified"
 								},
 								{
 									"key": "lang",

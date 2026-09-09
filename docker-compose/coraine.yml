@@ -43,4 +43,4 @@ services:
       - none
       - --apiPlugins
       - admin
-
+      - --distributed

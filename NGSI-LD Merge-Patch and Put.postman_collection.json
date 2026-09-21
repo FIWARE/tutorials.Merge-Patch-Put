@@ -240,7 +240,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?options=normalized",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:001?format=normalized",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"
@@ -286,7 +286,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:002/?options=concise",
+							"raw": "http://{{orion}}/ngsi-ld/v1/entities/urn:ngsi-ld:City:002/?format=concise",
 							"protocol": "http",
 							"host": [
 								"{{orion}}"

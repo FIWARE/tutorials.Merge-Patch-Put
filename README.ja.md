@@ -478,7 +478,7 @@ curl -L -X GET \
 #### 6️⃣ リクエスト:
 
 ```console
-curl -L -X GET \
+curl -G -X GET \
   'http://localhost:1026/ngsi-ld/v1/entities/urn:ngsi-ld:City:002' \
 -H 'Link: <http://context/user-context.jsonld>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"' \
 -H 'Accept: application/json' \
